@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Diaspora Health — healthcare delivery, real estate, and software</title>
+<meta name="description" content="Diaspora Health is a physician-led operating company building and holding businesses in healthcare delivery, real estate, and software.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@300;400;500&family=Archivo:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#10201C;
+    --ink-2:#182C26;
+    --ink-line:#2B4139;
+    --on-ink:#DEE5DD;
+    --on-ink-soft:#93A69D;
+    --mist:#E7E9E1;
+    --mist-line:#C7CCBF;
+    --bone:#F5F6F1;
+    --slate:#46554F;
+    --ochre:#B96F16;
+
+    --serif:"Spectral",Georgia,"Times New Roman",serif;
+    --sans:"Archivo","Helvetica Neue",Arial,sans-serif;
+
+    --gutter:clamp(1.25rem,5vw,4.5rem);
+    --maxw:1180px;
+  }
+
+  *,*::before,*::after{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;
+    background:var(--mist);
+    color:var(--slate);
+    font-family:var(--sans);
+    font-size:1.0625rem;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block}
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding-inline:var(--gutter)}
+
+  a{color:inherit}
+  a:focus-visible,button:focus-visible{
+    outline:2px solid var(--ochre);
+    outline-offset:3px;
+  }
+
+  .skip{
+    position:absolute;left:-999px;top:0;background:var(--bone);color:var(--ink);
+    padding:.6rem 1rem;z-index:50;
+  }
+  .skip:focus{left:.5rem;top:.5rem}
+
+  /* ---------- masthead ---------- */
+  .masthead{background:var(--ink);color:var(--on-ink)}
+  .masthead__inner{
+    display:flex;align-items:baseline;justify-content:space-between;
+    gap:1.5rem;padding-block:1.5rem;flex-wrap:wrap;
+  }
+  .mark{
+    font-family:var(--serif);font-weight:400;font-size:1.2rem;
+    letter-spacing:.01em;text-decoration:none;color:var(--on-ink);
+    display:inline-flex;align-items:baseline;gap:.55rem;
+  }
+  .mark__dot{
+    width:.5rem;height:.5rem;background:var(--ochre);
+    display:inline-block;transform:translateY(-.15rem);
+  }
+  .navlist{display:flex;gap:1.9rem;margin:0;padding:0;list-style:none;font-size:.9rem}
+  .navlist a{color:var(--on-ink-soft);text-decoration:none;padding-block:.2rem}
+  .navlist a:hover{color:var(--on-ink)}
+
+  /* ---------- hero ---------- */
+  .hero{background:var(--ink);color:var(--on-ink)}
+  .hero__inner{
+    display:grid;
+    grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);
+    gap:clamp(2.5rem,6vw,5.5rem);
+    padding-block:clamp(3.5rem,9vw,7.5rem) clamp(3.5rem,8vw,6.5rem);
+    align-items:start;
+  }
+  .hero__title{
+    font-family:var(--serif);font-weight:300;
+    font-size:clamp(2.55rem,6.2vw,5rem);
+    line-height:1.03;letter-spacing:-.022em;
+    margin:0 0 1.6rem;color:var(--bone);
+    max-width:15ch;
+  }
+  .hero__lede{
+    margin:0;max-width:52ch;font-size:clamp(1.05rem,1.5vw,1.2rem);
+    line-height:1.6;color:var(--on-ink);
+  }
+  .hero__where{
+    margin:2.2rem 0 0;font-size:.9rem;color:var(--on-ink-soft);
+    border-top:1px solid var(--ink-line);padding-top:1rem;max-width:42ch;
+  }
+
+  .index{margin:0;padding:0}
+  .index__cap{
+    font-family:var(--sans);font-size:.82rem;font-weight:500;
+    color:var(--on-ink-soft);margin:0 0 1.1rem;
+  }
+  .index__row{
+    display:block;text-decoration:none;color:var(--on-ink);
+    padding:1.05rem 0 1.15rem;position:relative;
+  }
+  .index__row::before{
+    content:"";position:absolute;top:0;left:0;right:0;height:1px;
+    background:var(--ink-line);transform:scaleX(0);transform-origin:left center;
+    animation:rule .9s cubic-bezier(.2,.7,.3,1) forwards;
+  }
+  .index__row:nth-child(2)::before{animation-delay:.30s}
+  .index__row:nth-child(3)::before{animation-delay:.42s}
+  .index__row:nth-child(4)::before{animation-delay:.54s}
+  .index__name{
+    font-family:var(--serif);font-size:1.28rem;font-weight:400;
+    display:block;color:var(--bone);
+  }
+  .index__note{display:block;font-size:.87rem;color:var(--on-ink-soft);margin-top:.15rem}
+  .index__row:hover .index__name{color:var(--ochre)}
+
+  @keyframes rule{to{transform:scaleX(1)}}
+  @keyframes lift{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+  .hero__title,.hero__lede,.hero__where{animation:lift .8s cubic-bezier(.2,.7,.3,1) both}
+  .hero__lede{animation-delay:.09s}
+  .hero__where{animation-delay:.18s}
+
+  /* ---------- register (what we do) ---------- */
+  .register{background:var(--mist);padding-block:clamp(3.5rem,8vw,6rem)}
+  .register__head{
+    display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);
+    gap:clamp(1.5rem,5vw,4rem);align-items:end;
+    padding-bottom:clamp(2rem,4vw,3rem);
+  }
+  .register__head h2{
+    font-family:var(--serif);font-weight:400;
+    font-size:clamp(1.9rem,3.5vw,2.85rem);line-height:1.1;
+    letter-spacing:-.015em;margin:0;color:var(--ink);max-width:14ch;
+  }
+  .register__head p{margin:0;max-width:56ch}
+
+  .entry{
+    display:grid;
+    grid-template-columns:minmax(0,4fr) minmax(0,5fr) minmax(0,3.4fr);
+    gap:clamp(1.5rem,4vw,3.5rem);
+    padding-block:clamp(2.2rem,4vw,3.2rem);
+    border-top:1px solid var(--mist-line);
+  }
+  .entry:last-of-type{border-bottom:1px solid var(--mist-line)}
+  .entry__name{margin:0;position:relative;padding-top:1.1rem}
+  .entry__name::before{
+    content:"";position:absolute;top:0;left:0;width:2.4rem;height:2px;background:var(--ochre);
+  }
+  .entry__name span{
+    font-family:var(--serif);font-weight:400;color:var(--ink);
+    font-size:clamp(1.5rem,2.4vw,2rem);line-height:1.15;letter-spacing:-.01em;
+    display:block;
+  }
+  .entry__body{margin:0;max-width:52ch}
+  .entry__list{margin:0;padding:0;list-style:none;font-size:.94rem}
+  .entry__list li{
+    padding:.5rem 0;border-bottom:1px solid var(--mist-line);color:var(--ink);
+  }
+  .entry__list li:first-child{padding-top:0}
+  .entry__list li:last-child{border-bottom:0;padding-bottom:0}
+
+  /* ---------- leadership ---------- */
+  .lead{background:var(--bone);padding-block:clamp(3.5rem,8vw,6rem)}
+  .lead__grid{
+    display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.75fr);
+    gap:clamp(2rem,5vw,4.5rem);align-items:start;
+  }
+  .card{
+    background:var(--ink);color:var(--on-ink);
+    padding:clamp(1.8rem,3.5vw,2.6rem);
+    position:sticky;top:1.5rem;
+  }
+  .card__name{
+    font-family:var(--serif);font-weight:300;color:var(--bone);
+    font-size:clamp(1.9rem,3vw,2.5rem);line-height:1.1;
+    letter-spacing:-.02em;margin:0 0 .6rem;
+  }
+  .card__role{margin:0;font-size:.95rem;color:var(--on-ink-soft)}
+  .card__dl{margin:1.8rem 0 0;font-size:.88rem}
+  .card__dl div{
+    display:flex;gap:1rem;justify-content:space-between;
+    padding:.62rem 0;border-top:1px solid var(--ink-line);
+  }
+  .card__dl dt{margin:0;color:var(--on-ink-soft);flex:0 0 auto}
+  .card__dl dd{margin:0;text-align:right;color:var(--on-ink)}
+
+  .bio h2{
+    font-family:var(--serif);font-weight:400;color:var(--ink);
+    font-size:clamp(1.75rem,3vw,2.4rem);line-height:1.15;
+    letter-spacing:-.015em;margin:0 0 1.4rem;max-width:20ch;
+  }
+  .bio p{margin:0 0 1.15rem;max-width:64ch}
+  .bio p:last-of-type{margin-bottom:0}
+  .creds{
+    margin-top:2.4rem;border-top:1px solid var(--mist-line);
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  }
+  .creds div{
+    padding:1.2rem 1.4rem 1.2rem 0;border-bottom:1px solid var(--mist-line);
+  }
+  .creds dt{margin:0 0 .3rem;font-size:.82rem;color:var(--slate)}
+  .creds dd{margin:0;font-family:var(--serif);font-size:1.05rem;color:var(--ink);line-height:1.4}
+
+  /* ---------- contact ---------- */
+  .contact{background:var(--ink);color:var(--on-ink);padding-block:clamp(3.5rem,8vw,6rem)}
+  .contact__grid{
+    display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);
+    gap:clamp(2rem,5vw,4rem);align-items:start;
+  }
+  .contact h2{
+    font-family:var(--serif);font-weight:300;color:var(--bone);
+    font-size:clamp(2rem,4vw,3.2rem);line-height:1.08;
+    letter-spacing:-.02em;margin:0 0 1.2rem;max-width:16ch;
+  }
+  .contact p{margin:0;max-width:46ch;color:var(--on-ink)}
+  .reach{margin:0;padding:0;list-style:none}
+  .reach li{border-top:1px solid var(--ink-line);padding:1rem 0}
+  .reach span{display:block;font-size:.84rem;color:var(--on-ink-soft);margin-bottom:.2rem}
+  .reach a,.reach strong{
+    font-family:var(--serif);font-weight:400;font-size:1.15rem;
+    color:var(--bone);text-decoration:none;
+    border-bottom:1px solid var(--ochre);padding-bottom:1px;
+  }
+  .reach strong{border-bottom:0}
+  .reach a:hover{color:var(--ochre)}
+
+  /* ---------- footer ---------- */
+  .foot{background:var(--ink);color:var(--on-ink-soft);border-top:1px solid var(--ink-line)}
+  .foot__inner{
+    display:flex;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;
+    padding-block:1.6rem;font-size:.84rem;
+  }
+  .foot a{color:var(--on-ink-soft)}
+
+  /* ---------- responsive ---------- */
+  @media (max-width:940px){
+    .hero__inner{grid-template-columns:1fr;gap:3rem}
+    .hero__title{max-width:18ch}
+    .register__head{grid-template-columns:1fr;align-items:start}
+    .entry{grid-template-columns:1fr;gap:1.4rem}
+    .entry__name{padding-top:1rem}
+    .lead__grid{grid-template-columns:1fr}
+    .card{position:static}
+    .contact__grid{grid-template-columns:1fr}
+  }
+  @media (max-width:560px){
+    .masthead__inner{flex-direction:column;align-items:flex-start;gap:.9rem}
+    .navlist{gap:1.3rem;flex-wrap:wrap}
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation:none!important;transition:none!important}
+    .index__row::before{transform:scaleX(1)}
+  }
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="masthead">
+  <div class="wrap masthead__inner">
+    <a class="mark" href="#top"><span class="mark__dot" aria-hidden="true"></span>Diaspora Health</a>
+    <nav aria-label="Primary">
+      <ul class="navlist">
+        <li><a href="#work">What we do</a></li>
+        <li><a href="#leadership">Leadership</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero" id="top">
+    <div class="wrap hero__inner">
+      <div>
+        <h1 class="hero__title">A physician-led operating company.</h1>
+        <p class="hero__lede">Diaspora Health builds and holds businesses in healthcare delivery, real estate, and software. We run them ourselves, on a long horizon, close to the people they serve.</p>
+        <p class="hero__where">Founded and led by Yvonne Kamau, MD, MBA. Working between Northeast Florida and East Africa.</p>
+      </div>
+
+      <div class="index">
+        <p class="index__cap">Three lines of work</p>
+        <a class="index__row" href="#healthcare">
+          <span class="index__name">Healthcare delivery</span>
+          <span class="index__note">Clinical services and care operations</span>
+        </a>
+        <a class="index__row" href="#realestate">
+          <span class="index__name">Real estate</span>
+          <span class="index__note">Acquisition, improvement, long-term ownership</span>
+        </a>
+        <a class="index__row" href="#software">
+          <span class="index__name">Software development</span>
+          <span class="index__note">Tools for clinical and property operations</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="register" id="work">
+    <div class="wrap">
+      <div class="register__head">
+        <h2>What we do</h2>
+        <p>The three businesses share owners, standards, and a back office. Health is where we started, and it still sets the bar: the same care we take with a patient is the care we take with a building or a release.</p>
+      </div>
+
+      <article class="entry" id="healthcare">
+        <h3 class="entry__name"><span>Healthcare delivery</span></h3>
+        <p class="entry__body">Clinical services grounded in hospital medicine and primary care. We focus on the parts of care that are easy to drop between handoffs — admissions, transitions, follow-up — and on communities that get less of it than they should.</p>
+        <ul class="entry__list">
+          <li>Inpatient and transitional care</li>
+          <li>Care coordination and discharge planning</li>
+          <li>Quality improvement engagements</li>
+          <li>Global and community health partnerships</li>
+        </ul>
+      </article>
+
+      <article class="entry" id="realestate">
+        <h3 class="entry__name"><span>Real estate</span></h3>
+        <p class="entry__body">Residential and small commercial property that we buy, improve, and keep. We favour buildings we can manage directly and hold through a cycle, rather than assets that only work on a fast exit.</p>
+        <ul class="entry__list">
+          <li>Acquisition and underwriting</li>
+          <li>Renovation and repositioning</li>
+          <li>Long-term rental operations</li>
+          <li>Small-scale development</li>
+        </ul>
+      </article>
+
+      <article class="entry" id="software">
+        <h3 class="entry__name"><span>Software development</span></h3>
+        <p class="entry__body">We build the tools our own operations need, then make them available to others working on the same problems. Practical software for people whose day is already full — clinicians, property managers, small teams.</p>
+        <ul class="entry__list">
+          <li>Clinical and administrative workflow tools</li>
+          <li>Property and portfolio systems</li>
+          <li>Data integration and reporting</li>
+          <li>Product work for outside clients</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="lead" id="leadership">
+    <div class="wrap lead__grid">
+      <div class="card">
+        <p class="card__name">Yvonne Kamau, MD, MBA</p>
+        <p class="card__role">Founder and Managing Director</p>
+        <dl class="card__dl">
+          <div><dt>Board certification</dt><dd>Family medicine</dd></div>
+          <div><dt>Licensed</dt><dd>Florida, California</dd></div>
+          <div><dt>Based</dt><dd>Jacksonville, Florida</dd></div>
+          <div><dt>Languages</dt><dd>English, Swahili, Kikuyu, Spanish</dd></div>
+        </dl>
+      </div>
+
+      <div class="bio">
+        <h2>A clinician who runs the business side too.</h2>
+        <p>Yvonne Kamau is a board-certified family medicine physician and practising hospitalist in Jacksonville, where she manages high-acuity inpatient panels and works with specialists, nursing staff, and case managers on complex, multi-system patients.</p>
+        <p>She trained in family medicine at Ascension St. Vincent's Riverside and completed a global health fellowship with Contra Costa Health Services and the University of California, San Francisco. During residency she built an international obstetrics rotation at Gynocare Women &amp; Fistula Hospital in Eldoret, Kenya, and established a formal partnership between the two institutions so residents and faculty could keep training there year after year.</p>
+        <p>Her MBA sits alongside the MD, and it shows up in how the company is run: workflow and throughput treated as clinical concerns, capital allocated with the same discipline as a treatment plan. Diaspora Health grew out of that combination — a way to build durable businesses across the two places she calls home.</p>
+
+        <dl class="creds">
+          <div>
+            <dt>Medicine</dt>
+            <dd>MD, University of Kansas School of Medicine</dd>
+          </div>
+          <div>
+            <dt>Business</dt>
+            <dd>MBA, University of Kansas School of Business</dd>
+          </div>
+          <div>
+            <dt>Residency</dt>
+            <dd>Ascension St. Vincent's Riverside</dd>
+          </div>
+          <div>
+            <dt>Fellowship</dt>
+            <dd>Global health, Contra Costa / UCSF</dd>
+          </div>
+          <div>
+            <dt>Research</dt>
+            <dd>Published on maternal and infant HIV care in Kenya</dd>
+          </div>
+          <div>
+            <dt>Recognition</dt>
+            <dd>Gold Humanism Honor Society; AAFP Foundation leadership award</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap contact__grid">
+      <div>
+        <h2>Start a conversation.</h2>
+        <p>We work with clinicians, property owners, and teams building something small and durable. If any of that sounds like you, write to us and say what you are working on.</p>
+      </div>
+      <ul class="reach">
+        <li>
+          <span>Email</span>
+          <a href="mailto:hello@diasporahealth.com">hello@diasporahealth.com</a>
+        </li>
+        <li>
+          <span>Offices</span>
+          <strong>Jacksonville, Florida</strong>
+        </li>
+        <li>
+          <span>LinkedIn</span>
+          <a href="https://www.linkedin.com/in/yvonnekamau">Yvonne Kamau</a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__inner">
+    <p style="margin:0">Diaspora Health &copy; 2026</p>
+    <p style="margin:0">Healthcare delivery, real estate, software development</p>
+  </div>
+</footer>
+
+</body>
+</html>
