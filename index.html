@@ -210,6 +210,30 @@
   .creds dt{margin:0 0 .3rem;font-size:.82rem;color:var(--slate)}
   .creds dd{margin:0;font-family:var(--serif);font-size:1.05rem;color:var(--ink);line-height:1.4}
 
+  .pubs{margin-top:2.6rem}
+  .pubs__head{
+    font-family:var(--sans);font-size:.88rem;font-weight:500;
+    color:var(--slate);margin:0 0 .2rem;
+  }
+  .pubs__list{
+    margin:0;padding:0;list-style:none;counter-reset:pub;
+  }
+  .pubs__list li{
+    counter-increment:pub;
+    border-top:1px solid var(--mist-line);
+    padding:.95rem 0 .95rem 2.1rem;position:relative;
+  }
+  .pubs__list li::before{
+    content:counter(pub);
+    position:absolute;left:0;top:1.05rem;
+    font-family:var(--sans);font-size:.78rem;color:var(--ochre);
+  }
+  .pubs__title{
+    display:block;font-family:var(--serif);font-size:1.05rem;
+    line-height:1.4;color:var(--ink);max-width:60ch;
+  }
+  .pubs__meta{display:block;font-size:.85rem;color:var(--slate);margin-top:.25rem}
+
   /* ---------- contact ---------- */
   .contact{background:var(--ink);color:var(--on-ink);padding-block:clamp(3.5rem,8vw,6rem)}
   .contact__grid{
@@ -366,7 +390,8 @@
       <div class="bio">
         <h2>A clinician who runs the business side too.</h2>
         <p>Yvonne Kamau is a board-certified family medicine physician and practising hospitalist in Jacksonville, where she manages high-acuity inpatient panels and works with specialists, nursing staff, and case managers on complex, multi-system patients.</p>
-        <p>She trained in family medicine at Ascension St. Vincent's Riverside and completed a global health fellowship with Contra Costa Health Services and the University of California, San Francisco. During residency she built an international obstetrics rotation at Gynocare Women &amp; Fistula Hospital in Eldoret, Kenya, and established a formal partnership between the two institutions so residents and faculty could keep training there year after year.</p>
+        <p>She trained in family medicine at Ascension St. Vincent's Riverside and completed a global health fellowship with Contra Costa Health Services and the University of California, San Francisco, with field research in health systems and implementation science.</p>
+        <p>Her research has centred on maternal and infant HIV care in Kenya — how point-of-care testing at birth actually gets adopted on a ward, what providers need in order to use it, and how mothers experience the services built around it. The work is qualitative and implementation-focused: less about whether an intervention works in principle than about what happens when it meets a real clinic. That question is the one Diaspora Health was organised around.</p>
         <p>Her MBA sits alongside the MD, and it shows up in how the company is run: workflow and throughput treated as clinical concerns, capital allocated with the same discipline as a treatment plan. Diaspora Health grew out of that combination — a way to build durable businesses across the two places she calls home.</p>
 
         <dl class="creds">
@@ -387,14 +412,36 @@
             <dd>Global health, Contra Costa / UCSF</dd>
           </div>
           <div>
-            <dt>Research</dt>
-            <dd>Published on maternal and infant HIV care in Kenya</dd>
+            <dt>Research focus</dt>
+            <dd>Implementation science and qualitative methods</dd>
           </div>
           <div>
             <dt>Recognition</dt>
             <dd>Gold Humanism Honor Society; AAFP Foundation leadership award</dd>
           </div>
         </dl>
+
+        <div class="pubs">
+          <h3 class="pubs__head">Selected publications</h3>
+          <ol class="pubs__list">
+            <li>
+              <span class="pubs__title">Implementing at-birth, point-of-care HIV testing in Kenya: a qualitative study</span>
+              <span class="pubs__meta">Wexler C, Kamau Y, et al. Implementation Science Communications, 2021</span>
+            </li>
+            <li>
+              <span class="pubs__title">Piloting birth HIV PCR testing within the early infant diagnosis guidelines in Kenya</span>
+              <span class="pubs__meta">Finocchario-Kessler S, Wexler C, Kamau Y, et al. Pediatric Infectious Disease Journal, 2021</span>
+            </li>
+            <li>
+              <span class="pubs__title">Women's preferences and experiences with male partner support throughout PMTCT services</span>
+              <span class="pubs__meta">Wexler C, Brown M, Maloba M, Kamau Y, et al. AIDS Care, 2021</span>
+            </li>
+            <li>
+              <span class="pubs__title">Closing the gap: provider recommendations for implementing birth point-of-care HIV testing</span>
+              <span class="pubs__meta">Wexler C, Kamau Y, et al. AIDS and Behavior, 2019</span>
+            </li>
+          </ol>
+        </div>
       </div>
     </div>
   </section>
